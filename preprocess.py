@@ -6,15 +6,16 @@ dataset_path = "resources/train.csv"
 
 def main():
     # it will be in main
-    df = pandas.read_csv(dataset_path)
-    X = df.iloc[:, 402:].values
-    Y = df.iloc[:, 2:402].values
+    # df = pandas.read_csv(dataset_path)
+    # X = df.iloc[:, 402:].values
+    # Y = df.iloc[:, 2:402].values
     # end of main code
-    prepareX(X)
+    # prepareX(X)
     # Y_train = Y.reshape(-1, 1).ravel()
 
     # print(Y_train.shape)
-    print(Y.shape)
+#     print(Y.shape)
+    pass
 
 
 def prepareY(Y):
@@ -34,8 +35,8 @@ def prepareX(X, wind_size=3):
         windows = rolling_window(game)
         windows = windows.reshape((400, wind_size, wind_size))
         X_train.append(windows)
-    print(len(X_train))
-    print(X_train[4].shape)
+    # print(len(X_train))
+    # print(X_train[4].shape)
     return X_train
 
 
