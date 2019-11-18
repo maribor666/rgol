@@ -4,6 +4,8 @@ import cython
 
 from preprocess import prepareX, prepareY
 
+# mb calc new thetas after ever x_ij, y_ij
+
 class Regression(object):
 
     def __init__(self):

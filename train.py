@@ -11,6 +11,8 @@ dataset_path = "resources/train.csv"
 # 1. arg parse
 # 2. preprocess data (solve how exectly)
 # 3. choose strategic of learning
+# make it faster with cython or/and multithreading/processing (mb use module futures)
+# !!! PorocessPoolExecutor
 
 
 def main():
