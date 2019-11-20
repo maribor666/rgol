@@ -6,11 +6,11 @@ dataset_path = "resources/train.csv"
 
 def main():
     # it will be in main
-    # df = pandas.read_csv(dataset_path)
-    # X = df.iloc[:, 402:].values
-    # Y = df.iloc[:, 2:402].values
+    df = pandas.read_csv(dataset_path)
+    X = df.iloc[:, 402:].values
+    Y = df.iloc[:, 2:402].values
     # end of main code
-    # prepareX(X)
+    prepareX(X)
     # Y_train = Y.reshape(-1, 1).ravel()
 
     # print(Y_train.shape)
@@ -37,6 +37,8 @@ def prepareX(X, wind_size=3):
         X_train.append(windows)
     # print(len(X_train))
     # print(X_train[4].shape)
+    # print(X[4])
+    # print(X_train[4])
     return X_train
 
 

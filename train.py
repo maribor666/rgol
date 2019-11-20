@@ -13,7 +13,9 @@ dataset_path = "resources/train.csv"
 # 3. choose strategic of learning
 # make it faster with cython or/and multithreading/processing (mb use module futures)
 # !!! PorocessPoolExecutor
-
+# idea: 
+#       rewrite regression calcultaing function in cython
+#		use it for multiproccesing execution
 
 def main():
 	# parser = argparse.ArgumentParser("Some descrition")

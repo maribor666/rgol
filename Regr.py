@@ -27,6 +27,8 @@ class Regression(object):
                 summa += self._cost(self._hypothesis(x_ij), y_ij)
                 i += 1
                 print(i)
+                break
+            break
         return summa / self.nums
             
 
