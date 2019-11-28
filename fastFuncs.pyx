@@ -1,6 +1,7 @@
 cimport cython
 
-import numpy as np
+# import numpy as np
+# https://stackoverflow.com/questions/14657375/cython-fatal-error-numpy-arrayobject-h-no-such-file-or-directory/14657667#14657667
 
 from libc.math cimport log, exp
 cimport numpy as np
