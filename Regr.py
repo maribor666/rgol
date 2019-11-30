@@ -1,12 +1,12 @@
 import multiprocessing as mp
-import numpy as np
 import pandas
-# import cython
+import numpy as np
 
 from preprocess import prepareX, prepareY
 
 import pyximport
-pyximport.install(language_level=3)
+pyximport.install(language_level=3,
+    setup_args={"include_dirs": np.get_include()})
 from fastFuncs import *
 
 # mb calc new thetas after ever x_ij, y_ij
