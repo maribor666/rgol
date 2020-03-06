@@ -35,10 +35,10 @@ def prepareX(X, wind_size=3):
         windows = rolling_window(game)
         windows = windows.reshape((400, wind_size, wind_size))
         X_train.append(windows)
-    # print(len(X_train))
-    # print(X_train[4].shape)
-    # print(X[4])
-    # print(X_train[4])
+    print(len(X_train))
+    print(X_train[4].shape)
+    print(X[4])
+    print(X_train[4])
     return X_train
 
 
