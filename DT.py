@@ -42,7 +42,8 @@ def build_tree(rows):
     true_rows, false_rows = partitions(rows, question)
     true_branch = build_tree(true_rows)
     false_branch = build_tree(false_rows)
-    return Decision_Node(question, true_branch, false_branch)
+    node = Decision_Node(question, true_branch, false_branch)
+    return node
 
 
 def classify(row, node):
