@@ -41,7 +41,6 @@ def build_tree(X, y):
     root = DecisionNode(best_question, prev_node=None)
     root.true_data = [true_rows, true_rows_y]
     root.false_data = [false_rows, false_rows_y]
-    # queue = [[true_rows, true_rows_y, root], [false_rows, false_rows_y, root]]
     nodes = [root]
     while True:
         new_nodes = []
@@ -51,7 +50,7 @@ def build_tree(X, y):
                 node.true_node = Leaf(node.true_data[1])
             else:
                 new_node = DecisionNode(question)
-                true_rows, true_rows_y, false_rows, false_rows_y = partitions(*node.true_data, question) # change indexing to smth
+                true_rows, true_rows_y, false_rows, false_rows_y = partitions(*node.true_data, question)
                 new_node.true_data = [true_rows, true_rows_y]
                 new_node.false_data = [false_rows, false_rows_y]
                 node.true_node = new_node
@@ -61,7 +60,7 @@ def build_tree(X, y):
                 node.false_node = Leaf(node.false_data[1])
             else:
                 new_node = DecisionNode(question)
-                true_rows, true_rows_y, false_rows, false_rows_y = partitions(*node.false_data, question) # change indexing to smth
+                true_rows, true_rows_y, false_rows, false_rows_y = partitions(*node.false_data, question)
                 new_node.true_data = [true_rows, true_rows_y]
                 new_node.false_data = [false_rows, false_rows_y]
                 node.false_node = new_node
@@ -77,7 +76,6 @@ class DecisionNode:
         self.question = question
         self.true_node = true_node
         self.false_node = false_node
-        self.prev_node = prev_node
         self.true_data = None
         self.false_data = None
 
