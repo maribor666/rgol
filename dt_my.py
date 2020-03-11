@@ -1,4 +1,6 @@
 from pprint import pprint
+
+x_test = [1, 1, 1]
 #   x1, x2, x3
 X = [
     [1, 1, 0],  # 1
@@ -6,6 +8,7 @@ X = [
     [1, 0, 0],  # 0
     [0, 1, 0]   # 0
 ]
+
 y = [1, 1, 0, 0]
 header = ['x1', 'x2', 'x3']
 
@@ -32,13 +35,25 @@ def main():
     print(best_gain)
     print('*' * 20)
     tree = build_tree(X, y)
-    print('wegfr')
+    res = classify(tree, x_test)
+    print(res)
+
+
+def classify(tree, example):
+    curr_node = tree
+    while True:
+        if isinstance(curr_node, Leaf):
+            return curr_node.predictions
+        if curr_node.question.match(example):
+            curr_node = curr_node.true_node
+        else:
+            curr_node = curr_node.false_node
 
 
 def build_tree(X, y):
     best_gain, best_question = find_best_split(X, y)
     true_rows, true_rows_y, false_rows, false_rows_y = partitions(X, y, best_question)
-    root = DecisionNode(best_question, prev_node=None)
+    root = DecisionNode(best_question)
     root.true_data = [true_rows, true_rows_y]
     root.false_data = [false_rows, false_rows_y]
     nodes = [root]
@@ -72,7 +87,7 @@ def build_tree(X, y):
 
 class DecisionNode:
 
-    def __init__(self, question, true_node=None, false_node=None, prev_node=None):
+    def __init__(self, question, true_node=None, false_node=None):
         self.question = question
         self.true_node = true_node
         self.false_node = false_node

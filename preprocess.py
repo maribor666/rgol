@@ -19,7 +19,7 @@ def main():
 
 
 def prepareY(Y):
-    return Y
+    return Y.reshape(-1, 1).ravel()
 
 
 def prepareX(X, wind_size=3):
@@ -35,11 +35,9 @@ def prepareX(X, wind_size=3):
         windows = rolling_window(game)
         windows = windows.reshape((400, wind_size, wind_size))
         X_train.append(windows)
-    print(len(X_train))
-    print(X_train[4].shape)
-    print(X[4])
-    print(X_train[4])
-    return X_train
+    x_reshaped = np.vstack((X_train))
+    x_reshaped = x_reshaped.reshape((x_reshaped.shape[0], 9))
+    return x_reshaped
 
 
 def rolling_window(a, shape=(3, 3)):
